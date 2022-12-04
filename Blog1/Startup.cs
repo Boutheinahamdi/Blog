@@ -23,7 +23,8 @@ namespace Blog1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient("BlogAPI", client => { client.BaseAddress = new Uri("http://localhost:5000/"); });
-            services.AddHttpClient("Owner", client => { client.BaseAddress = new Uri("http://localhost:6001/"); });
+            services.AddHttpClient("ProjectAPI", client => { client.BaseAddress = new Uri("http://localhost:7007/"); });
+            services.AddHttpClient("OwnerAPI", client => { client.BaseAddress = new Uri("http://localhost:6001/"); });
             services.AddControllersWithViews();
            
         }

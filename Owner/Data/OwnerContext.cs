@@ -29,12 +29,12 @@ namespace Owner.Data
             {
                 new Owner1() {
 
-           name="Boutheina Hamdi",
+           name="Ingenieur En Issat",
            age=22,
-           description="cloud Engineer",
+           description="kubernetes Developper",
            adress="sousse-Tunis",
-           email="HamdiBoutheina@outlook.com",
-           phone=27824387,
+           email="KubernetesOwner@outlook.com",
+           phone=33256478,
            smalldesc="software engenner||cloud||DevOps",
            urlimage="this is an url"
 

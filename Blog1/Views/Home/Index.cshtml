@@ -1,8 +1,9 @@
-﻿@model IEnumerable< Blog1.Models.Blog>;
+﻿@model   Blog1.ViewModel.ProjetViewModel
 
 @{
     ViewData["Title"] = "Home Page";
 }
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -74,24 +75,27 @@
     <!-- Mobile menu -->
     <!--Header-->
     <header class="main-header" style="background-image: url(~/img/img_bg_header.jpg)">
+    @foreach (var owner in Model.owner1)
+   {
+        
         <div class="container">
             <div class="row personal-profile">
                 <div class="col-md-4 personal-profile__avatar">
                     <img class="" src="http://via.placeholder.com/350x400" alt="avatar">
                 </div>
                 <div class="col-md-8">
-                    <p class="personal-profile__name">John Anderson_</p>
-                    <p class="personal-profile__work">frontend developer, QA-engineer</p>
+                        <p class="personal-profile__name">@Html.DisplayFor( Modelitem=> owner.name)</p>
+                    <p class="personal-profile__work">@Html.DisplayFor( Modelitem=> owner.smalldesc)</p>
                     <div class="personal-profile__contacts">
                         <dl class="contact-list contact-list__opacity-titles">
                             <dt>Age:</dt>
                             <dd>23</dd>
                             <dt>Phone:</dt>
-                            <dd><a href="tel:82344563333">8 (234) 456-33-33</a></dd>
+                            <dd><a href="tel:82344563333">@Html.DisplayFor( Modelitem=> owner.phone)</a></dd>
                             <dt>Email:</dt>
-                            <dd><a href="mailto:mail@mail.com">mail@mail.com</a></dd>
+                            <dd><a href="mailto:mail@mail.com">@Html.DisplayFor( Modelitem=> owner.email)</a></dd>
                             <dt>Address:</dt>
-                            <dd>Melbourne Victoria 3000 Australia</dd>
+                            <dd>@Html.DisplayFor( Modelitem=> owner.adress)</dd>
                         </dl>
                     </div>
                     <p class="personal-profile__social">
@@ -102,7 +106,11 @@
                 </div>
             </div>
         </div>
+    
+       
+   }
     </header>
+   
     <!--Header-->
     <!--Hello-->
     <section id="hello" class="container section">
@@ -306,59 +314,17 @@
                 </nav>
             </div>
         </div>
-        <div class="portfolio-cards">
-            <div class="row project-card" data-toggle="modal" data-target="#portfolioModal" data-portfolio-tag="web-sites">
-                <div class="col-md-6 col-lg-5 project-card__img">
-                    <img class="" src="~/img/img_project_1_mono.png" alt="project-img">
-                </div>
-                <div class="col-md-6 col-lg-7 project-card__info">
-                    <h3 class="project-card__title">Mobile and desktop app for London hostel store  </h3>
-                    <p class="project-card__description">
-                        Do answered bachelor occasion in of offended no concerns. Supply worthy warmth branch of no ye.
-                        Voice tried known to as my to. Though wished merits or be. Alone visit use these smart rooms ham.
-                    </p>
-                    <p class="project-card__stack">Used stack:</p>
-                    <ul class="tags">
-                        <li>html5</li>
-                        <li>css3</li>
-                        <li>JavaScript</li>
-                        <li>bower</li>
-                        <li>grunt</li>
-                    </ul>
-                    <a href="" class="project-card__link">www.superapp.com</a>
-                </div>
-            </div>
-            <div class="row project-card" data-toggle="modal" data-target="#portfolioModal" data-portfolio-tag="mobile apps">
-                <div class="col-md-6 col-lg-5 project-card__img">
-                    <img class="" src="~/img/img_project_2_mono.png" alt="project-img">
-                </div>
-                <div class="col-md-6 col-lg-7 project-card__info">
-                    <h3 class="project-card__title">Web app page for trevel company</h3>
-                    <p class="project-card__description">
-                        Preference any astonished unreserved mrs. Prosperous understood middletons in conviction an
-                        uncommonly do. Supposing so be resolving breakfast am or perfectly. Is drew am hill from mr.
-                    </p>
-                    <p class="project-card__stack">Used stack:</p>
-                    <ul class="tags">
-                        <li>html5</li>
-                        <li>css3</li>
-                        <li>JavaScript</li>
-                        <li>BEM</li>
-                        <li>bower</li>
-                        <li>grunt</li>
-                    </ul>
-                    <a href="" class="project-card__link">www.travellend.com</a>
-                </div>
-            </div>
+         
+                @foreach (var project in Model.project)
+                {
             <div class="row project-card" data-toggle="modal" data-target="#portfolioModal" data-portfolio-tag="landing-pages">
                 <div class="col-md-6 col-lg-5 project-card__img">
                     <img class="" src="~/img/img_project_3_mono.png" alt="project-img">
                 </div>
                 <div class="col-md-6 col-lg-7 project-card__info">
-                    <h3 class="project-card__title">Admin template for Photo Service</h3>
+                    <h3 class="project-card__title">@Html.DisplayFor( Modelitem=> project.title)</h3>
                     <p class="project-card__description">
-                        Do answered bachelor occasion in of offended no concerns. Supply worthy warmth branch of no ye.
-                        Voice tried known to as my to. Though wished merits or be. Alone visit use these smart rooms ham.
+                      @Html.DisplayFor( Modelitem=> project.Description)
                     </p>
                     <p class="project-card__stack">Used stack:</p>
                     <ul class="tags">
@@ -372,7 +338,10 @@
                     <a href="" class="project-card__link">www.coolphoto.com</a>
                 </div>
             </div>
-        </div>
+        }
+            
+           
+     
     </section>
     <!--Portfolio-->
     <!--Testimonials-->
@@ -476,9 +445,10 @@
             </div>
         </div>
 
+
         <div class="row post-cards">
-            @foreach (var blog in Model)
-                {
+            @foreach (var blog in Model.blog)
+            {
                 <div class="col-md-4">
                     <a href="blog.html">
                         <div class="post-cards__card">
@@ -496,7 +466,7 @@
                         </div>
                     </a>
                 </div>
-                }
+            }
 
            
 
