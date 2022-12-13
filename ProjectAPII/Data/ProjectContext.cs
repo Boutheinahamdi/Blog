@@ -30,11 +30,11 @@ namespace ProjectAPII.Data
             {
                 new Project() {
 
-            title="project1",
-            content="this is content",
+            title="Mobile Application",
+            content="Mobile Application developped with React Native and hosted on Azure app center",
         
-            Description="this is desc",
-            urlImage="sdkfsl"
+            Description="React Native is a JavaScript mobile framework developed by Facebook",
+            urlImage="image"
 
                           }
             };

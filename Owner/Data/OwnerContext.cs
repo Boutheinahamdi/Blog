@@ -17,11 +17,13 @@ namespace Owner.Data
         public IMongoCollection<Owner1> owner { get; }
         public static void seedData(IMongoCollection<Owner1> blogsCollection)
         {
+
             bool existBlog = blogsCollection.Find(b => true).Any();
             if (!existBlog)
             {
                 blogsCollection.InsertMany(GetPreconfBlogs());
             }
+
         }
         private static IEnumerable<Owner1> GetPreconfBlogs()
         {
@@ -35,7 +37,7 @@ namespace Owner.Data
            adress="sousse-Tunis",
            email="KubernetesOwner@outlook.com",
            phone=33256478,
-           smalldesc="software engenner||cloud||DevOps",
+           smalldesc="software engineer||cloud||DevOps",
            urlimage="this is an url"
 
 

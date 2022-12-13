@@ -71,29 +71,28 @@
         <div class="article">
             <div class="row">
                 <div class="col-md-12">
-                    <a class="article__back-link" href="index.html"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Back</a>
+                    <a class="article__back-link" asp-action="Index "><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Back</a>
                     <p class="article__title">@Html.DisplayFor(model => model.title) </p>
                     <p class="article_date">@Html.DisplayFor(model => model.date)</p>
                     <p>
                         @Html.DisplayFor(model => model.Content)
                     </p>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui:
+                        The Distributed Application Runtime (Dapr) provides APIs that simplify microservice connectivity.
+                        Whether your communication pattern is service to service invocation or pub/sub messaging, 
+                        Dapr helps you write resilient and secured microservices.
                     </p>
                     <figure>
-                        <img src="http://via.placeholder.com/1000x450">
+                        <img src="~/img/dapr.png">
                         <figcaption>This is how I organize my HTML, CSS and PHP files</figcaption>
                     </figure>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui.
+                        By letting Dapr’s sidecar take care of the complex challenges such as service discovery, 
+                        message broker integration, encryption, observability, 
+                        and secret management, you can focus on business logic and keep your code simple.
+                        Dapr provides you with APIs that abstract away the complexity of common challenges developers
+                        encounter regularly when building distributed applications. These API building blocks can be leveraged as the need arises - use one,
+                        several or all to develop your application faster and deliver your solution on time
                     </p>
                     <p class="article__share">
                         Share this post:

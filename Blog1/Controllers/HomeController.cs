@@ -61,17 +61,17 @@ namespace Blog1.Controllers
             return View();
         }
 
-       /* public async Task<IActionResult> blog()
+       public async Task<IActionResult> blog()
         {
             var response = await _httpclient.GetAsync("/api/Blog");
             var content = await response.Content.ReadAsStringAsync();
            
            var BlogList = JsonConvert.DeserializeObject<IEnumerable<Blog>>(content);
-            var blog=BlogList.First();
-            ProjetViewModel vm1 = new ProjetViewModel();
-            vm1.blog = BlogList;
-            return View(vm1.blog);
-        }*/
+            Blog blog = BlogList.First();
+           
+         
+            return View(blog);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

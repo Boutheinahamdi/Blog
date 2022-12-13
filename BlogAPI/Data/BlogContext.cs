@@ -29,11 +29,11 @@ namespace BlogAPI.Data
             {
                 new Blog() {
            
-            title="Middlware",
-            Content="this is content",
+            title="Dapr integration",
+            Content="This article introduces the new cloud runtime developed by Microsoft on  August 2022",
             date="1/01/2022",
-            Description="this is desc",
-            urlImage="sdkfsl"
+            Description="microservices architectures middlwares",
+            urlImage="image"
 
                           }
             };

@@ -39,9 +39,9 @@
                             <li><a href="#hello">Hello</a></li>
                             <li><a href="#resume">Resume</a></li>
                             <li><a href="#portfolio">Portfolio</a></li>
-                            <li><a href="#testimonials">testimonials</a></li>
+                          
                             <li><a href="#blog">blog</a></li>
-                            <li><a href="#contact">Contact</a></li>
+                           
                         </ul>
                     </nav>
                 </div>
@@ -65,9 +65,9 @@
                     <li><a href="#hello">Hello</a></li>
                     <li><a href="#resume">Resume</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#testimonials">testimonials</a></li>
+                    
                     <li><a href="#blog">blog</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                  
                 </ul>
             </nav>
         </div>
@@ -81,7 +81,7 @@
         <div class="container">
             <div class="row personal-profile">
                 <div class="col-md-4 personal-profile__avatar">
-                    <img class="" src="http://via.placeholder.com/350x400" alt="avatar">
+                    <img class="" src="~/img/avatar.png" alt="avatar">
                 </div>
                 <div class="col-md-8">
                         <p class="personal-profile__name">@Html.DisplayFor( Modelitem=> owner.name)</p>
@@ -118,12 +118,13 @@
             <div class="col-md-10">
                 <h2 id="hello_header" class="section__title">Hi_</h2>
                 <p class="section__description">
+                    
                     I am Junior Web developer able to build a Web presence from the ground up - from concept, navigation,
                     layout and programming to UX and SEO. Skilled at writing well-designed, testable and efficient code using
                     current best practices in Web development. Fast learner, hard worker and team player who is proficient in
                     an array of scripting languages and multimedia Web tools.
                 </p>
-                <a href="" class="section_btn site-btn"><img src="~/img/img_btn_icon.png" alt="">Download CV</a>
+               
             </div>
         </div>
     </section>
@@ -134,19 +135,7 @@
     <!--Resume-->
     <section id="resume" class="container section">
         <div class="row">
-            <div class="col-md-10">
-                <h2 id="resume_header" class="section__title">Resume_</h2>
-                <p class="section__description">
-                    Lorem ipsum dolor sit amet, <i><b>communication</b></i> adipisicing elit, <i><b>helpful</b></i> eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud <i>
-                        <b>
-                            sence of
-                            humour
-                        </b>
-                    </i> ullamco laboris nisi ut <i><b>honest</b></i> ea commodo consequat. Duis aute irure dolor in
-                    upper-intermediate english level velit  dolore eu ivivdtevoluptatem ontend developer.
-                </p>
-            </div>
+          
         </div>
         <div class="row">
             <div class="col-md-8 section__resume resume-list">
@@ -176,34 +165,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-8 section__resume resume-list">
-                <h3 class="resume-list_title">employment</h3>
-                <div class="resume-list__block">
-                    <p class="resume-list__block-title">Apple</p>
-                    <p class="resume-list__block-date">2006 - 2010</p>
-                    <p>
-                        Senior Full Stack Developer
-                    </p>
-                </div>
-                <div class="resume-list__block">
-                    <p class="resume-list__block-title">Tech university</p>
-                    <p class="resume-list__block-date">2004 - 2005</p>
-                    <p>
-                        Awesome developer, lorem ipsum dolor sit amet, conse ctetur adipisicing elit, sed do eius-
-                        mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    </p>
-                </div>
-                <div class="resume-list__block">
-                    <p class="resume-list__block-title">Molly’s studio</p>
-                    <p class="resume-list__block-date">2003 - 2006</p>
-                    <p>
-                        Programmer Lorem ipsum dolor sit amet, consecte tur adipisicing elit, sed do eiusmod tempor
-                        incididunt ut
-                    </p>
-                </div>
-            </div>
-        </div>
+       
         <div class="row section__resume progress-list js-progress-list">
             <div class="col-md-12">
                 <h3 class="progress-list__title">general skills</h3>
@@ -324,7 +286,7 @@
                 <div class="col-md-6 col-lg-7 project-card__info">
                     <h3 class="project-card__title">@Html.DisplayFor( Modelitem=> project.title)</h3>
                     <p class="project-card__description">
-                      @Html.DisplayFor( Modelitem=> project.Description)
+                      @Html.DisplayFor( Modelitem=> project.content)
                     </p>
                     <p class="project-card__stack">Used stack:</p>
                     <ul class="tags">
@@ -344,99 +306,7 @@
      
     </section>
     <!--Portfolio-->
-    <!--Testimonials-->
-    <div id="testimonials" class="section">
-        <div class="background slider-carousel" style="background-image: url(~/img/img_bg_main.jpg);">
-            <div class="container">
-                <div id="carouselTestimonials" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselTestimonials" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselTestimonials" data-slide-to="1"></li>
-                        <li data-target="#carouselTestimonials" data-slide-to="2"></li>
-                        <li data-target="#carouselTestimonials" data-slide-to="3"></li>
-                    </ol>
-                    <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active">
-                            <div class="row">
-                                <div class="col-md-10 col-sm-10 col-10 mr-auto ml-auto">
-                                    <p class="slider-carousel__title">Antonio Anderson</p>
-                                    <p class="slider-carousel__caption">Project: Landin page for travel company</p>
-                                    <hr>
-                                    <p class="slider-carousel__description">
-                                        Up or well must less rent read walk so be. Easy
-                                        sold at do hour sing spot. Any meant has cease too the decay. Since party burst am
-                                        it match. By or blushes between besides offices noisier as. Sending do brought winding
-                                        compass in. Easy sold at do hour sing spot less rent read walk so be. Any meant has
-                                        cease too the decay.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row">
-                                <div class="col-md-10 col-sm-10 col-10 mr-auto ml-auto">
-                                    <p class="slider-carousel__title">Antonio Anderson</p>
-                                    <p class="slider-carousel__caption">Project: Landin page for travel company</p>
-                                    <hr>
-                                    <p class="slider-carousel__description">
-                                        Up or well must less rent read walk so be. Easy
-                                        sold at do hour sing spot. Any meant has cease too the decay. Since party burst am
-                                        it match. By or blushes between besides offices noisier as. Sending do brought winding
-                                        compass in. Easy sold at do hour sing spot less rent read walk so be. Any meant has
-                                        cease too the decay.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row">
-                                <div class="col-md-10 col-sm-10 col-10 mr-auto ml-auto">
-                                    <p class="slider-carousel__title">Antonio Anderson</p>
-                                    <p class="slider-carousel__caption">Project: Landin page for travel company</p>
-                                    <hr>
-                                    <p class="slider-carousel__description">
-                                        Up or well must less rent read walk so be. Easy
-                                        sold at do hour sing spot. Any meant has cease too the decay. Since party burst am
-                                        it match. By or blushes between besides offices noisier as. Sending do brought winding
-                                        compass in. Easy sold at do hour sing spot less rent read walk so be. Any meant has
-                                        cease too the decay.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row">
-                                <div class="col-md-10 col-sm-10 col-10 mr-auto ml-auto">
-                                    <p class="slider-carousel__title">Antonio Anderson</p>
-                                    <p class="slider-carousel__caption">Project: Landin page for travel company</p>
-                                    <hr>
-                                    <p class="slider-carousel__description">
-                                        Up or well must less rent read walk so be. Easy
-                                        sold at do hour sing spot. Any meant has cease too the decay. Since party burst am
-                                        it match. By or blushes between besides offices noisier as. Sending do brought winding
-                                        compass in. Easy sold at do hour sing spot less rent read walk so be. Any meant has
-                                        cease too the decay.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#testimonials" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#testimonials" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                    <div class="slider-carousel__circle">
-                        <p><i class="fa fa-quote-right" aria-hidden="true"></i></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Testimonials-->
+   
     <!--Blog-->
     <section id="blog" class="container section">
         <div class="row">
@@ -450,7 +320,7 @@
             @foreach (var blog in Model.blog)
             {
                 <div class="col-md-4">
-                    <a href="blog.html">
+                    <a asp-action="blog" asp-route-id="@blog.title">
                         <div class="post-cards__card">
                             <div class="post-cards__img">
                                 <img src="~/img/img_blog_1.png" alt="blog_img">
@@ -461,7 +331,7 @@
                                 <p class="post-cards_description">
                                     @Html.DisplayFor( Modelitem=> blog.Description)
                                 </p>
-                                <a asp-action="blog" asp-route-id="@blog.title"><i class="fas fa-eye"> </i>Details</a> |
+                              
                             </div>
                         </div>
                     </a>
@@ -475,65 +345,7 @@
         </div>
     </section>
     <!--Blog-->
-    <!--Contact-->
-    <div class="background" style="background-image: url(~/img/img_bg_main.jpg)">
-        <div id="contact" class="container section">
-            <div class="row">
-                <div class="col-md-12">
-                    <p id="contacts_header" class="section__title">Get in touch_</p>
-                </div>
-            </div>
-            <div class="row contacts">
-                <div class="col-md-5 col-lg-4">
-                    <div class="contacts__list">
-                        <dl class="contact-list">
-                            <dt>Phone:</dt>
-                            <dd><a href="tel:82344563333">8 (234) 456-33-33</a></dd>
-                            <dt>Skype:</dt>
-                            <dd><a href="skype:iamivanovivan">iamivanovivan</a></dd>
-                            <dt>Email:</dt>
-                            <dd><a href="mailto:mail@mail.com">mail@mail.com</a></dd>
-                        </dl>
-                    </div>
-                    <div class="contacts__social">
-                        <ul>
-                            <li><a href="">Facebook</a></li>
-                            <li><a href="">Linkedin</a></li>
-                            <li><a href="">GitHub</a></li>
-                            <li><a href="">Bitbucket</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-7 col-lg-5">
-                    <div class="contacts__form">
-                        <p class="contacts__form-title">Or just write me a letter here_</p>
-                        <form class="js-form">
-                            <div class="form-group">
-                                <input class="form-field js-field-name" type="text" placeholder="Your name" required>
-                                <span class="form-validation"></span>
-                                <span class="form-invalid-icon"><i class="mdi mdi-close" aria-hidden="true"></i></span>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-field js-field-email" type="email" placeholder="Your e-mail" required>
-                                <span class="form-validation"></span>
-                                <span class="form-invalid-icon"><i class="mdi mdi-close" aria-hidden="true"></i></span>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-field js-field-message" placeholder="Type the message here" required></textarea>
-                                <span class="form-validation"></span>
-                                <span class="form-invalid-icon"><i class="mdi mdi-close" aria-hidden="true"></i></span>
-                            </div>
-                            <button class="site-btn site-btn--form" type="submit" value="Send">Send</button>
-                        </form>
-                    </div>
-                    <div class="footer">
-                        <p>© 2016 Ivan Susanin. All Rights Reserved</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Contact-->
+    
     <!-- Portfolio Modal -->
     <div class="modal fade portfolio-modal" id="portfolioModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
