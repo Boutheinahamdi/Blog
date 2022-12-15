@@ -1,0 +1,30 @@
+---
+version: "3.4"
+services:
+  projectapii:
+    image: ${DOCKER_REGISTRY-}projectapii
+    build:
+      context: .
+      dockerfile: ProjectAPII/Dockerfile
+  owner:
+    image: ${DOCKER_REGISTRY-}owner
+    build:
+      context: .
+      dockerfile: Owner/Dockerfile
+  manipulation:
+    image: ${DOCKER_REGISTRY-}manipulation
+    build:
+      context: .
+      dockerfile: Manipulation/Dockerfile
+  blogapi:
+    image: ${DOCKER_REGISTRY-}blogapi
+    build:
+      context: .
+      dockerfile: BlogAPI/Dockerfile
+  blog1:
+    image: ${DOCKER_REGISTRY-}blog1
+    build:
+      context: .
+      dockerfile: Blog1/Dockerfile
+  blog.db:
+    image: mongo

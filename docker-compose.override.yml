@@ -1,0 +1,64 @@
+---
+version: "3.4"
+services:
+  projectapii:
+    container_name: projectapi
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DataBaseSettings:ConnectionString=mongodb://applicationdb:27017"
+    depends_on:
+      - blog.db
+    ports:
+      - 8001:80
+  owner:
+    container_name: ownerapi
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DataBaseSettings:ConnectionString=mongodb://applicationdb:27017"
+    depends_on:
+      - blog.db
+    ports:
+      - 8002:80
+  manipulation:
+    container_name: manipulationmvc
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+ 
+      - "DataBaseSettings:ConnectionString=mongodb://applicationdb:27017"
+    depends_on:
+      - blog.db
+   
+    ports:
+      - 8003:80
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+  blogapi:
+    container_name: blogapii
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DataBaseSettings:ConnectionString=mongodb://applicationdb:27017"
+    depends_on:
+      - blog.db
+    ports:
+      - 8004:80
+  blog1:
+    container_name: blogmvc
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DataBaseSettings:ConnectionString=mongodb://applicationdb:27017"
+      - "ProjectApiUrl=http://projectapi"
+      - "BlogApiUrl=http://blogapii"
+      - "OwnerApiUrl=http://ownerapi"
+    depends_on:
+      - blog.db
+      - blogapi
+      - owner
+      - projectapii
+    ports:
+      - 8000:80
+  blog.db:
+    container_name: applicationdb
+    restart: always
+    ports:
+      - 27017:27017

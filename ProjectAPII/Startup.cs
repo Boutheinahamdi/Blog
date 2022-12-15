@@ -26,6 +26,16 @@ namespace ProjectAPII
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("ccc",
+                                  policy =>
+                                  {
+                                      policy.WithOrigins("*")
+                                                          .AllowAnyHeader()
+                                                          .AllowAnyMethod();
+                                  });
+            });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -44,7 +54,7 @@ namespace ProjectAPII
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ProjectAPII v1"));
             }
-
+            app.UseCors("ccc");  
             app.UseRouting();
 
             app.UseAuthorization();

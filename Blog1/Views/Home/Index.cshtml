@@ -74,6 +74,55 @@
     </div>
     <!-- Mobile menu -->
     <!--Header-->
+    <!--Portfolio-->
+    <section id="portfolio" class="container section">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 id="portfolio_header" class="section__title">My projects_</h2>
+            </div>
+        </div>
+        <div class="row portfolio-menu">
+            <div class="col-md-12">
+                <nav>
+                    <ul>
+                        <li><a href="" data-portfolio-target-tag="all">all</a></li>
+                        <li><a href="" data-portfolio-target-tag="mobile apps">mobile apps</a></li>
+                        <li><a href="" data-portfolio-target-tag="web-sites">web-sites</a></li>
+                        <li><a href="" data-portfolio-target-tag="landing-pages">landing pages</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        @foreach (var project in Model.project)
+        {
+            <div class="row project-card" data-toggle="modal" data-target="#portfolioModal" data-portfolio-tag="landing-pages">
+                <div class="col-md-6 col-lg-5 project-card__img">
+                    <img class="" src="~/img/img_project_3_mono.png" alt="project-img">
+                </div>
+                <div class="col-md-6 col-lg-7 project-card__info">
+                    <h3 class="project-card__title">@Html.DisplayFor( Modelitem=> project.title)</h3>
+                    <p class="project-card__description">
+                        @Html.DisplayFor( Modelitem=> project.content)
+                    </p>
+                    <p class="project-card__stack">Used stack:</p>
+                    <ul class="tags">
+                        <li>html5</li>
+                        <li>css3</li>
+                        <li>JavaScript</li>
+                        <li>BEM</li>
+                        <li>bower</li>
+                        <li>grunt</li>
+                    </ul>
+                    <a href="" class="project-card__link">www.coolphoto.com</a>
+                </div>
+            </div>
+        }
+
+
+
+    </section>
+    <!--Portfolio-->
     <header class="main-header" style="background-image: url(~/img/img_bg_header.jpg)">
     @foreach (var owner in Model.owner1)
    {
@@ -257,55 +306,6 @@
         </div>
     </section>
     <!--Resume-->
-    <!--Portfolio-->
-    <section id="portfolio" class="container section">
-        <div class="row">
-            <div class="col-md-12">
-                <h2 id="portfolio_header" class="section__title">My projects_</h2>
-            </div>
-        </div>
-        <div class="row portfolio-menu">
-            <div class="col-md-12">
-                <nav>
-                    <ul>
-                        <li><a href="" data-portfolio-target-tag="all">all</a></li>
-                        <li><a href="" data-portfolio-target-tag="mobile apps">mobile apps</a></li>
-                        <li><a href="" data-portfolio-target-tag="web-sites">web-sites</a></li>
-                        <li><a href="" data-portfolio-target-tag="landing-pages">landing pages</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-         
-                @foreach (var project in Model.project)
-                {
-            <div class="row project-card" data-toggle="modal" data-target="#portfolioModal" data-portfolio-tag="landing-pages">
-                <div class="col-md-6 col-lg-5 project-card__img">
-                    <img class="" src="~/img/img_project_3_mono.png" alt="project-img">
-                </div>
-                <div class="col-md-6 col-lg-7 project-card__info">
-                    <h3 class="project-card__title">@Html.DisplayFor( Modelitem=> project.title)</h3>
-                    <p class="project-card__description">
-                      @Html.DisplayFor( Modelitem=> project.content)
-                    </p>
-                    <p class="project-card__stack">Used stack:</p>
-                    <ul class="tags">
-                        <li>html5</li>
-                        <li>css3</li>
-                        <li>JavaScript</li>
-                        <li>BEM</li>
-                        <li>bower</li>
-                        <li>grunt</li>
-                    </ul>
-                    <a href="" class="project-card__link">www.coolphoto.com</a>
-                </div>
-            </div>
-        }
-            
-           
-     
-    </section>
-    <!--Portfolio-->
    
     <!--Blog-->
     <section id="blog" class="container section">

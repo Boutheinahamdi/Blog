@@ -22,9 +22,21 @@ namespace Blog1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHttpClient("BlogAPI", client => { client.BaseAddress = new Uri("http://localhost:5000/"); });
-            services.AddHttpClient("ProjectAPI", client => { client.BaseAddress = new Uri("http://localhost:7007/"); });
-            services.AddHttpClient("OwnerAPI", client => { client.BaseAddress = new Uri("http://localhost:6001/"); });
+            services.AddHttpClient("BlogAPI", client => {
+
+                //client.BaseAddress = new Uri("http://localhost:5000/");
+                client.BaseAddress = new Uri(Configuration["BlogApiUrl"]);
+            });
+            services.AddHttpClient("ProjectAPI", client => {
+
+                //client.BaseAddress = new Uri("http://localhost:7007/");
+                client.BaseAddress = new Uri(Configuration["ProjectApiUrl"]);
+            });
+            services.AddHttpClient("OwnerAPI", client => {
+
+                // client.BaseAddress = new Uri("http://localhost:6001/"); 
+                client.BaseAddress = new Uri(Configuration["OwnerApiUrl"]);
+            });
             services.AddControllersWithViews();
            
         }
