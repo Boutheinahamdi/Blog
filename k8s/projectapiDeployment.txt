@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project-deployment
+  labels:
+    app: projectapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: projectapi
+  template:
+    metadata:
+      labels:
+        app: projectapi
+    spec:
+      containers:
+      - name: projectapi
+        image: nginx:1.14.2
+        imagePullPolicy: ifNotPresent
+        ports:
+        - containerPort: 80
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Development
+        - name: DatabaseSettings__ConnectionString
+          valueFrom: 
+                configMapKeyRef:
+                  name: mongo-configmap
+                  key: connection_string
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: projectapi-service
+spec:
+  
+  selector:
+    app: projectapi
+  ports:
+    - protocol: TCP
+      port: 80
+      

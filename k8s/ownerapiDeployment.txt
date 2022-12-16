@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: owner-deployment
+  labels:
+    app: ownerapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ownerapi
+  template:
+    metadata:
+      labels:
+        app: ownerapi
+    spec:
+      containers:
+      - name: ownerapi
+        image: nginx:1.14.2
+        imagePullPolicy: ifNotPresent
+        ports:
+        - containerPort: 80
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Development
+        - name: DatabaseSettings__ConnectionString
+          valueFrom: 
+                configMapKeyRef:
+                  name: mongo-configmap
+                  key: connection_string
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ownerapi-service
+spec:
+  
+  selector:
+    app: ownerapi
+  ports:
+    - protocol: TCP
+      port: 80
+      

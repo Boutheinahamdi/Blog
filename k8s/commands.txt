@@ -1,0 +1,24 @@
+// to push images to Az container Registry
+az login
+az group create --name myResourceGroup --location westeurope
+az acr create --resource-group myResourceGroup --name middlwareContainerResgt --sku Basic
+
+az acr update -n middlwareContainerResgt --admin-enabled true
+az acr login --name middlwareContainerResgt
+
+az acr list --ressource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" -- output table
+
+docker tag ownerapi:latest sortircmdPr/ownerapi:v1
+
+docker push sortircmdPr/ownerapi:v1
+
+az aks create -g myResourceGroup -n myAKSCluster  --node-count 1  --generate-ssh-keys --attach-acr middlwareContainerResgt
+
+
+az aks get-credentials --ressource-group myResourceGroup --name myAKSCluster
+// Monitoring cmds:
+kubectl describe pod pod name
+kubectl cluster-info   
+kubectl cluster-info  dump
+
+

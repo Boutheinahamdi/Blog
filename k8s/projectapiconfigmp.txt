@@ -1,0 +1,6 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: projectapi-configmap
+data:
+  projectapi_url: http://projectapi-service

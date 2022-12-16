@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blogmcv-deployment
+  labels:
+    app: blogmcv
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blogmcv
+  template:
+    metadata:
+      labels:
+        app: blogmcv
+    spec:
+      containers:
+      - name: blogmcv
+        image: nginx:1.14.2
+        imagePullPolicy: ifNotPresent
+        ports:
+        - containerPort: 80
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Development
+        - name: DatabaseSettings__ConnectionString
+          valueFrom: 
+                configMapKeyRef:
+                  name: mongo-configmap
+                  key: connection_string
+        - name: ProjectApiUrl
+          valueFrom:
+              configMapKeyRef:
+                name: projectapi-configmap 
+                key: projectapi_url
+        - name: BlogApiUrl
+          valueFrom:
+              configMapKeyRef:
+                name: blogapi-configmap 
+                key: blogapi_url
+        - name: OwnerApiUrl
+          valueFrom:
+              configMapKeyRef:
+                name: ownerapi-configmap 
+                key: ownerapi_url
+         
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blogmcv-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: blogmcv
+  ports:
+    - protocol: TCP
+      port: 80
