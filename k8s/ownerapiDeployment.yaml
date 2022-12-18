@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
       - name: ownerapi
-        image: nginx:1.14.2
-        imagePullPolicy: ifNotPresent
+        image: middlwarecontainerresgt.azurecr.io/owner:v1
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
         env:

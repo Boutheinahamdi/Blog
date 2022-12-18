@@ -1,0 +1,18 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: azure-servicebus-queue-scaledobject
+  namespace: default
+spec:
+  scaleTargetRef:
+    name: manipmcv-deployment 
+  pollingInterval: 3 
+  cooldownPeriod: 2 
+  minReplicaCount: 0
+  maxReplicaCount: 10
+  triggers:
+  - type: azure-servicebus
+    metadata:
+      queueName: Queue
+      messageCount: "3" 
+      connectionFromEnv: SERVICEBUS_CONNECTIONSTRING

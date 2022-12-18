@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
       - name: blogmcv
-        image: nginx:1.14.2
-        imagePullPolicy: ifNotPresent
+        image: middlwarecontainerresgt.azurecr.io/blog1:v1
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
         env:

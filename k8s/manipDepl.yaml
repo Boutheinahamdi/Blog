@@ -1,44 +1,46 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongo-deployment
+  name: manipmcv-deployment
   labels:
-    app: mongodb
+    app: manipmcv
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: mongodb
+      app: manipmcv
   template:
     metadata:
       labels:
-        app: mongodb
+        app: manipmcv
     spec:
       containers:
-        - name: mongodb
-          image: mongo
-          ports:
-            - containerPort: 27017
-          env:
-            - name: MONGO_INITDB_ROOT_USERNAME
-              valueFrom: 
-                secretKeyRef:
-                  name: mongo-secret
-                  key: mongo-root-username
-            - name: MONGO_INITDB_ROOT_PASSWORD
-              valueFrom: 
-                secretKeyRef:
-                  name: mongo-secret
-                  key: mongo-root-password
+      - name: manipmcv
+        image: middlwarecontainerresgt.azurecr.io/manipulation:v1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Development
+        - name: DatabaseSettings__ConnectionString
+          valueFrom: 
+                configMapKeyRef:
+                  name: mongo-configmap
+                  key: connection_string
+        - name: SERVICEBUS_CONNECTIONSTRING
+          value: "Endpoint=sb://servicebusxyz.servicebus.windows.net/;SharedAccessKeyName=keda-aks-01;SharedAccessKey=KwC4VLTQu1TjS3BHpB17FQVMuq6xd8h+y4dPa1djuwU=;EntityPath=Queue"
+
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongo-service
+  name: manipmcv-service
 spec:
+  type: LoadBalancer
   selector:
-    app: mongodb
+    app: manipmcv
   ports:
     - protocol: TCP
-      port: 27017
-      targetPort: 27017
+      port: 80
+      
